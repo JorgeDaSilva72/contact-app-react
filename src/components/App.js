@@ -1,10 +1,12 @@
 import React, { useState, useEffect } from "react";
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { Routes, Route } from "react-router-dom";
 // import { uuid } from "uuidv4"; il est buggé
 import "./App.css";
 import Header from "./Header";
 import AddContact from "./AddContact";
 import ContactList from "./ContactList";
+import ContactDetail from "./ContactDetail";
+import Navbar from "./Navbar";
 
 function App() {
   const LOCAL_STORAGE_KEY = "contacts";
@@ -34,27 +36,34 @@ function App() {
 
   return (
     <div className="ui container">
-      <Header />
-      <Router>
-        <Routes>
-          <Route
-            path="/add"
-            element={<AddContact addContactHandler={addContactHandler} />}
-          />
-          <Route
-            path="/"
-            element={
-              <ContactList
-                contacts={contacts}
-                getContactId={removeContactHandler}
-              />
-            }
-          />
+      {/* <Header /> */}
+      <Navbar />
 
-          {/* <AddContact addContactHandler={addContactHandler} />
-        <ContactList contacts={contacts} getContactId={removeContactHandler} /> */}
-        </Routes>
-      </Router>
+      <Routes>
+        <Route
+          path="/"
+          element={
+            <ContactList
+              contacts={contacts}
+              getContactId={removeContactHandler}
+            />
+          }
+        />
+        <Route
+          path="add"
+          element={<AddContact addContactHandler={addContactHandler} />}
+        />
+        <Route path="contact/:id" element={<ContactDetail />} />
+        <Route
+          path="*"
+          element={
+            <ContactList
+              contacts={contacts}
+              getContactId={removeContactHandler}
+            />
+          }
+        />
+      </Routes>
     </div>
   );
 }

@@ -27,3 +27,20 @@ i.icon {
   cursor: pointer;
 }
 
+nav{
+  background-color: aliceblue;
+  font-size: 20px;
+  padding: 16px 32px;
+  cursor:pointer;
+}
+
+nav a{
+  margin-right: 16px;
+  
+}
+
+nav a.active{
+  text-decoration: none;
+  font-weight: bold;
+  
+}

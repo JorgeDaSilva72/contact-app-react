@@ -46,13 +46,13 @@ class AddContact extends React.Component {
           <button className="ui button blue">Add Contact</button>
         </form>
 
-        <div className="main2">
+        {/* <div className="main2">
           <Link to="/">
             <button className="ui button blue right">
               Go to the Contact List
             </button>
           </Link>
-        </div>
+        </div> */}
       </div>
     );
   }
